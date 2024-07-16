@@ -1,0 +1,96 @@
+<ScreenUpload>
+	name: "upload"
+
+	MDBoxLayout:
+		orientation: "vertical"
+		md_bg_color: self.theme_cls.backgroundColor
+
+		MDTopAppBar:
+			id: "top_bar_upload"
+			type: "small"
+			md_bg_color: [0,0,1,1]
+
+			MDTopAppBarLeadingButtonContainer:
+
+				MDActionTopAppBarButton:
+					icon: "arrow-left"
+					on_release: app.root.current = "main"
+
+			MDTopAppBarTitle:
+				text: "Upload"
+				pos_hint: {"center_x": .5}
+
+			MDTopAppBarTrailingButtonContainer:
+
+                MDActionTopAppBarButton:
+                    icon: "help-circle-outline"
+                    on_release: app.root.current = "instructions"
+
+        MDBoxLayout:
+        	orientation: "vertical"
+        	spacing: 10
+        	padding: 20
+
+        	MDScreen:
+        		size_hint: None, None
+	        	size_hint: 1, 0.6
+        		MDCard:
+        			size_hint: None, None
+        			size: "200dp", "200dp"
+        			pos_hint: {"center_x": .5}
+        			style: "elevated"
+
+        			FitImage:
+        				id: selected_image
+                		source: ''
+                		size_hint: (None, None)
+                		size: ("200dp", "200dp")
+                		pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                		radius: "16dp", "16dp", "16dp", "16dp"
+
+
+
+        	MDScreen:
+        		size_hint: None, None
+	        	size_hint: 1, 0.3
+
+        		MDBoxLayout:
+        			orientation:"vertical"
+        			size: root.width, root.height
+        			padding: "8dp"
+        			spacing: "8dp"
+
+        			
+	        		MDLabel:
+	        			text: "Image Upload"
+	        			halign: "center"
+	        			adaptive_size: False
+	        			pos_hint: {"center_x": .5, "top": 1}
+	        			size_hint_y: None
+	        			height: self.texture_size[1]
+
+	        		MDButton:
+	        			style: "text"
+	        			pos_hint: {"center_x": .5, "top": 1}
+
+	        			MDButtonIcon:
+	        				icon: "plus"
+
+	        			MDButtonText:
+	        				text: "Upload"
+
+	        		MDButton:
+	        			style: "filled"
+	        			pos_hint: {"center_x": .5}
+
+	        			MDButtonText:
+	        				text: "Confirm"
+
+	        MDScreen:
+	        	size_hint: None, None
+	        	size_hint: 1, 0.3
+
+
+
+			
+			

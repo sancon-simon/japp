@@ -1,0 +1,36 @@
+<ScreenRecent>:
+    name: "recent"
+
+    MDBoxLayout:
+		orientation: "vertical"
+		md_bg_color: self.theme_cls.backgroundColor
+
+		MDTopAppBar:
+			id: "top_bar_recent"
+			type: "small"
+			size_hint_x: 1 
+			md_bg_color: [0,0,1,1]
+
+			MDTopAppBarLeadingButtonContainer:
+
+				MDActionTopAppBarButton:
+					icon: "arrow-left"
+					on_release: app.root.current = "main"
+
+
+			MDTopAppBarTitle:
+				text: "Recent"
+				pos_hint: {"center_x": .5}
+
+		ScrollView:
+            MDBoxLayout:
+                id: recent_images_layout
+                orientation: "vertical"
+                padding: 24
+                spacing: 16
+                size_hint_y: None
+                height: self.minimum_height
+
+		
+
+

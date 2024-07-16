@@ -1,0 +1,145 @@
+<ScreenInstruction>
+	name: "instructions"
+
+	MDBoxLayout:
+		orientation: "vertical"
+		md_bg_color: self.theme_cls.backgroundColor
+
+		MDTopAppBar:
+			id: "top_bar_main"
+			type: "small"
+			size_hint_x: 1 
+			md_bg_color: [0,0,1,1]
+
+			MDTopAppBarLeadingButtonContainer:
+
+				MDActionTopAppBarButton:
+					icon: "arrow-left"
+					on_release: app.root.current = "main"
+
+
+			MDTopAppBarTitle:
+				text: "Instructions"
+				pos_hint: {"center_x": .5}
+
+
+	    MDScrollView:
+			do_scroll_x: False
+			do_scroll_y: True
+
+			MDBoxLayout:
+		        size_hint_y: None
+		        height: self.minimum_height
+		        orientation: "vertical"
+		        spacing: 24
+		        padding: 32
+
+				Instruction_Card:
+					padding: 0
+					style: "elevated"
+					pos_hint: {"center_x": .5}
+
+					MDBoxLayout:
+						padding:0
+						spacing:0
+						orientation: "vertical"
+
+			            MDScreen:
+							radius: [16, 16, 0, 0]
+							md_bg_color: [1, 1, 0, 1]
+							Image:
+								source: "kivyimages\image_instruction_1.png"
+								fit_mode: "fill"
+
+			            MDScreen:
+							size_hint_y: 0.4
+
+							MDBoxLayout:
+								padding:16
+								spacing:8
+								orientation: "vertical"
+
+				                MDLabel:
+									text: "How to Capture:"
+									halign: "center"
+									adaptive_size: False
+
+				                MDLabel:
+									text: "Capture the code snippet within the bounding box"
+									halign: "center"
+									role:  "small"
+									adaptive_size: False
+
+		        Instruction_Card:
+					padding: 0
+					style: "elevated"
+					pos_hint: {"center_x": .5}
+
+					MDBoxLayout:
+						padding:0
+						spacing:0
+						orientation: "vertical"
+
+			            MDScreen:
+							radius: [16, 16, 0, 0]
+							md_bg_color: [0, 0, 1, 1]
+							Image:
+								source: "kivyimages\image_recent_1.png"
+								fit_mode: "fill"
+
+			            MDScreen:
+							size_hint_y: 0.4
+
+							MDBoxLayout:
+				                padding:16
+				                spacing:8
+				                orientation: "vertical"
+
+				                MDLabel:
+									text: "Recent:"
+									halign: "center"
+									adaptive_size: False
+
+				                MDLabel:
+									text: "Access the recently captured images, found in the lower right corner button"
+									halign: "center"
+									role:  "small"
+									adaptive_size: False
+
+		        Instruction_Card:
+					padding: 0
+					style: "elevated"
+					pos_hint: {"center_x": .5}
+
+					MDBoxLayout:
+						padding:0
+						spacing:0
+						orientation: "vertical"
+
+				        MDScreen:
+							radius: [16, 16, 0, 0]
+							md_bg_color: [1, 1, 0, 1]
+							Image:
+								source: "kivyimages\image_instruction_1.png"
+								fit_mode: "fill"
+								size_hint_y: None
+								height: dp(160)  # Adjust the height as needed
+
+				        MDScreen:
+							size_hint_y: 0.4
+
+							MDBoxLayout:
+								padding:8
+								spacing:4
+								orientation: "vertical"
+
+								MDLabel:
+									text: "Upload:"
+									halign: "center"
+									adaptive_size: False
+
+								MDLabel:
+									text: "Upload images, by tapping the icon in the buttom-left hand corner"
+									halign: "center"
+									role:  "small"
+									adaptive_size: False

@@ -1,0 +1,93 @@
+#:include instruction.kv
+#:include recent.kv
+#:include settings.kv
+#:include about.kv
+#:include upload.kv
+
+WindowManager:
+    ScreenMain:
+    ScreenInstruction:
+    ScreenRecent:
+    ScreenSettings:
+    ScreenUpload:
+    ScreenAbout:
+
+<Instruction_Card@MDCard>:
+    size_hint: None, None
+    height: "60dp"
+    padding: "24dp"
+    size: "240dp", "250dp"
+
+<ScreenMain>:
+    name: "main"
+
+    
+    MDBoxLayout:
+    	orientation: "vertical"
+    	size: root.width, root.height
+
+        MDScreen:
+            size_hint_y: .1
+            size_hint_x: 1
+            md_bg_color: self.theme_cls.backgroundColor
+
+            MDTopAppBar:
+                type: "small"
+
+                MDTopAppBarLeadingButtonContainer:
+
+                    MDActionTopAppBarButton:
+                        id: button_menu
+                        icon: "menu"
+                        on_release: app.menu_open()
+
+                MDTopAppBarTitle:
+                    text: "                  "
+
+                MDTopAppBarTrailingButtonContainer:
+
+                    MDActionTopAppBarButton:
+                        icon: "flash-outline"
+
+                    MDActionTopAppBarButton:
+                        icon: "help-circle-outline"
+                        on_release: app.root.current = "instructions"
+        MDScreen:
+			Camera:
+				id:camera
+				resolution:(640,480)
+				play: True
+
+        MDScreen:
+            md_bg_color: [0,0,0,1]
+            size_hint_y: .3
+            size_hint_x: 1
+
+            MDBoxLayout:
+                orientation: "horizontal"
+                size: root.width, root.height
+                padding: 24, 24
+                spacing: 24
+
+                MDScreen:
+                    MDIconButton:
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        icon: "image-plus-outline"
+                        style: "standard"
+                        on_release: app.file_manager_open()
+                        on_release: app.root.current = "upload"
+
+                MDScreen:
+                    MDIconButton:
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        icon: ""
+                        style: "outlined"
+                        theme_bg_color: "Custom"
+                        md_bg_color: "red"
+
+                MDScreen:
+                    MDIconButton:
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        icon: "history"
+                        style: "standard"
+                        on_release: app.root.current = "recent"

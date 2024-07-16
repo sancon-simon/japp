@@ -1,0 +1,31 @@
+<ScreenSettings>
+	name: "settings"
+
+    MDBoxLayout:
+		orientation: "vertical"
+		md_bg_color: self.theme_cls.backgroundColor
+
+		MDTopAppBar:
+			id: "top_bar_recent"
+			type: "small"
+			size_hint_x: 1 
+			md_bg_color: [0,0,1,1]
+
+			MDTopAppBarLeadingButtonContainer:
+
+				MDActionTopAppBarButton:
+					icon: "arrow-left"
+					on_release: app.root.current = "main"
+
+
+			MDTopAppBarTitle:
+				text: "Settings"
+				pos_hint: {"center_x": .5}
+
+
+		MDScreen:
+			MDSwitch:
+				id: theme_switch
+				pos_hint: {"center_x": .5, "center_y": .5}
+				on_active: app.toggle_theme_style(theme_switch.active)
+

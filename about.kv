@@ -1,0 +1,36 @@
+<ScreenAbout>
+	name: "about"
+
+    MDBoxLayout:
+		orientation: "vertical"
+		md_bg_color: self.theme_cls.backgroundColor
+
+		MDTopAppBar:
+			id: "top_bar_upload"
+			type: "small"
+			size_hint_x: 1 
+			md_bg_color: [0,0,1,1]
+
+			MDTopAppBarLeadingButtonContainer:
+
+				MDActionTopAppBarButton:
+					icon: "arrow-left"
+					on_release: app.root.current = "main"
+
+
+			MDTopAppBarTitle:
+				text: "About Us"
+				pos_hint: {"center_x": .5}
+
+
+		ScrollView:
+        	do_scroll_x: False
+
+	        StackLayout:
+	            id: stack_layout
+	            orientation: 'tb-lr'
+	            size_hint_y: None
+	            height: self.minimum_height
+	            padding: dp(8)
+	            spacing: dp(8)
+			
